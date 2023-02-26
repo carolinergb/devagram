@@ -1,7 +1,7 @@
-/* eslint-disable import/no-anonymous-default-export */
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { conectaBD } from 'middlewares/conectaBD';
 
-export default(req: NextApiRequest, res: NextApiResponse) => {
+const login = (req: NextApiRequest, res: NextApiResponse) => {
   if(req.method === 'POST') {
     const { login, senha } = req.body;
 
@@ -13,3 +13,5 @@ export default(req: NextApiRequest, res: NextApiResponse) => {
 
   return res.status(405).json({erro: 'Método informado não está correto'})
 }
+
+export default login;
